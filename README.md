@@ -8,3 +8,7 @@ This repository is the product of the **BEST** hacking boys and girls from the H
 
 - Visual Studio Code with Unity Debugger Extension
 - Unity 2021.3.10f1
+
+## Setup
+
+Open the folder *Hackadelic* with Unity 2021.3.10f1
