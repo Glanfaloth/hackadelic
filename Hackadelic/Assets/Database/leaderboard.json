@@ -1,0 +1,23 @@
+{
+    "scores": 
+    [
+        {
+            "playerId": 1,
+            "totalScore": 0,
+            "totalTime": 1,
+            "relativeScore": 0
+        },
+        {
+            "playerId": 2,
+            "totalScore": 1000,
+            "totalTime": 5,
+            "relativeScore": 200
+        },
+        {
+            "playerId": 3,
+            "totalScore": 1500,
+            "totalTime": 10,
+            "relativeScore": 150
+        }
+    ]
+}
