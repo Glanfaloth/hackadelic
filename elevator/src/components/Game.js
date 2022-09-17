@@ -7,7 +7,7 @@ import ElevatorUI from "./ElevatorUI";
 
 function Game() {
   var people = require("../assets/people.json");
-  const [step, setStep] = useState(0);
+  const [isHovered, setIshovered] = useState(false);
   return (
     <div>
       <img
@@ -38,6 +38,7 @@ function Game() {
         {people.people.map((person, index) => (
           <Colleague
             key={index}
+            setIsHovered={setIshovered}
             peopleId={person.peopleId}
             firstName={person.firstName}
             lastName={person.lastName}
@@ -68,6 +69,18 @@ function Game() {
         }}
       ></div>
       <Introduction />
+      {!isHovered &&(<div
+        style={{
+          position: "absolute",
+          zIndex: "6",
+          bottom: "5vh",
+          left: "3vw",
+          width: "20vw"
+        }}
+      >
+        <p style={{ color: "white", fontSize: "2vw" }}>Say hi to your colleagues!</p>
+        <p style={{ color: "white", fontSize: "1.5vw" }}>Hover over their picture to see their availability!</p>
+      </div>)}
       <ElevatorUI />
     </div>
   );
