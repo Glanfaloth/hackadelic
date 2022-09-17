@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218898887554b474ab1ae658419bf90a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PersonPinPrefab: {fileID: 8699617088468653735, guid: bfaea28ec7d0e47e8abc0e6fa6c212b9, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
