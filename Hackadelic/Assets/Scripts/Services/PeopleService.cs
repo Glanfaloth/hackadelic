@@ -13,6 +13,11 @@ public class PeopleService : Service
         people = jArray.ToObject<Person[]>();
     }
 
+    public Person[] GetAllPeople()
+    {
+        return people;
+    }
+
     public Person GetPerson(int peopleId)
     {
         return people.Single(person => person.PeopleId == peopleId);

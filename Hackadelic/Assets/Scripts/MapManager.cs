@@ -6,8 +6,14 @@ public class MapManager : MonoBehaviour
 
     public void InitializeMap()
     {
-        var person = GameManager.PeopleService.GetPerson(1);
-        Instantiate(PersonPinPrefab, new Vector3(person.TableLocationX, person.TableLocationY, 0), Quaternion.identity);
+        var people = GameManager.PeopleService.GetAllPeople();
+        foreach(var person in people)
+        {
+            var personPin = Instantiate(PersonPinPrefab, new Vector3(person.TableLocationX, person.TableLocationY, 0), Quaternion.identity);
+            var personPinCompontent = personPin.GetComponent<PersonPin>();
+            personPinCompontent.Initialize(person);
+        }
+
     }
 
     public string Test()
