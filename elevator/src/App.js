@@ -1,14 +1,14 @@
 import blueprint from "./assets/floor_plan_1.png";
-
+import {useState} from "react";
 import "./App.css";
 import Colleague from "./components/Colleague";
 import Elevator from "./components/Elevator";
 
 function App() {
   var people = require("./assets/people.json");
+  const [step, setStep] = useState(0);
   return (
     <div>
-      {" "}
       <img
         src={blueprint}
         style={{
@@ -19,6 +19,15 @@ function App() {
         }}
         alt="logo"
       />
+      <div
+          style={{
+            zIndex: "1",
+            width: "100vw",
+            height: "100vh",
+            position: "fixed",
+            backgroundColor: "rgba(0, 0, 0, 0.4)"
+          }}
+        ></div>
       <div
         style={{
           zIndex: "3",
@@ -53,7 +62,7 @@ function App() {
           borderRadius: "10px",
           marginTop: "10px",
           padding: "5px",
-          alignContent: "center",
+          alignContent: "center"
         }}
       ></div>
       <Elevator />

@@ -17,7 +17,7 @@
             "description": "Hi, I'm Joshua",
             "imagePath": "portrait_2.jpeg",
             "floorNumber": 5,
-            "tableLocationX": 300, 
+            "tableLocationX": 500,
             "tableLocationY": 420
         },
         {
@@ -27,8 +27,8 @@
             "description": "Hi, I'm Michael",
             "imagePath": "portrait_3.jpeg",
             "floorNumber": 5,
-            "tableLocationX": 1100,
-            "tableLocationY": 200
+            "tableLocationX": 800,
+            "tableLocationY": 550
         },
         {
             "peopleId": 4,
@@ -37,9 +37,8 @@
             "description": "Hi, I'm Silvan",
             "imagePath": "portrait_4.jpeg",
             "floorNumber": 5,
-            "tableLocationX": 800,
-            "tableLocationY":550
+            "tableLocationX": 550,
+            "tableLocationY": 200
         }
-        
     ]
 }
