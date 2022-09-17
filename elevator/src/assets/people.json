@@ -5,17 +5,17 @@
             "firstName": "Yelan",
             "lastName": "Tao",
             "description": "Hi, I'm Yelan",
-            "imagePath": "portrait_1.jpg",
+            "imagePath": "portrait_1.jpeg",
             "floorNumber": 5,
-            "tableLocationX": 120,
-            "tableLocationY": 150
+            "tableLocationX": 800,
+            "tableLocationY": 300
         },
         {
             "peopleId": 2,
             "firstName": "Joshua",
             "lastName": "Näf",
             "description": "Hi, I'm Joshua",
-            "imagePath": "portrait_2.jpg",
+            "imagePath": "portrait_2.jpeg",
             "floorNumber": 5,
             "tableLocationX": 300, 
             "tableLocationY": 420
@@ -25,7 +25,7 @@
             "firstName": "Michael",
             "lastName": "Giger",
             "description": "Hi, I'm Michael",
-            "imagePath": "portrait_3.jpg",
+            "imagePath": "portrait_3.jpeg",
             "floorNumber": 5,
             "tableLocationX": 1100,
             "tableLocationY": 200
@@ -35,7 +35,7 @@
             "firstName": "Silvan",
             "lastName": "Löw",
             "description": "Hi, I'm Silvan",
-            "imagePath": "portrait_4.jpg",
+            "imagePath": "portrait_4.jpeg",
             "floorNumber": 5,
             "tableLocationX": 800,
             "tableLocationY":550
