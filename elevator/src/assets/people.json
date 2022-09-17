@@ -5,7 +5,7 @@
             "firstName": "Yelan",
             "lastName": "Tao",
             "description": "Hi, I'm Yelan",
-            "imagePath": "Portrait/portrait_1",
+            "imagePath": "portrait_1.jpg",
             "floorNumber": 5,
             "tableLocationX": -12,
             "tableLocationY": -6
@@ -15,7 +15,7 @@
             "firstName": "Joshua",
             "lastName": "Näf",
             "description": "Hi, I'm Joshua",
-            "imagePath": "Portrait/portrait_2",
+            "imagePath": "portrait_2.jpg",
             "floorNumber": 5,
             "tableLocationX": -11, 
             "tableLocationY": 9
@@ -25,7 +25,7 @@
             "firstName": "Michael",
             "lastName": "Giger",
             "description": "Hi, I'm Michael",
-            "imagePath": "Portrait/portrait_3",
+            "imagePath": "portrait_3.jpg",
             "floorNumber": 5,
             "tableLocationX": 15,
             "tableLocationY": 2
@@ -35,7 +35,7 @@
             "firstName": "Silvan",
             "lastName": "Löw",
             "description": "Hi, I'm Silvan",
-            "imagePath": "Portrait/portrait_4",
+            "imagePath": "portrait_4.jpg",
             "floorNumber": 5,
             "tableLocationX": -20,
             "tableLocationY": 2
