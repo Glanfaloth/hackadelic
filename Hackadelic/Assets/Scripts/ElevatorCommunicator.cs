@@ -12,7 +12,7 @@ public class ElevatorCommunicator
 
     public void StopElevatorRide()
     {
-        ElevatorState = ElevatorState.Waiting;¨
+        ElevatorState = ElevatorState.Waiting;
         LogElevatorState();
     }
 
