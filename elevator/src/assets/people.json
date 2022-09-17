@@ -5,40 +5,44 @@
             "firstName": "Yelan",
             "lastName": "Tao",
             "description": "Hi, I'm Yelan",
+            "location": "elevator.png",
             "imagePath": "portrait_1.jpeg",
             "floorNumber": 5,
-            "tableLocationX": 800,
-            "tableLocationY": 300
+            "tableLocationX": 55,
+            "tableLocationY": 31
         },
         {
             "peopleId": 2,
             "firstName": "Joshua",
             "lastName": "Näf",
             "description": "Hi, I'm Joshua",
+            "location": "kitchen.png",
             "imagePath": "portrait_2.jpeg",
             "floorNumber": 5,
-            "tableLocationX": 500,
-            "tableLocationY": 420
+            "tableLocationX": 35,
+            "tableLocationY": 45
         },
         {
             "peopleId": 3,
             "firstName": "Michael",
             "lastName": "Giger",
             "description": "Hi, I'm Michael",
+            "location": "workspace.png",
             "imagePath": "portrait_3.jpeg",
             "floorNumber": 5,
-            "tableLocationX": 800,
-            "tableLocationY": 550
+            "tableLocationX": 58,
+            "tableLocationY": 60
         },
         {
             "peopleId": 4,
             "firstName": "Silvan",
             "lastName": "Löw",
             "description": "Hi, I'm Silvan",
+            "location": "wc.png",
             "imagePath": "portrait_4.jpeg",
             "floorNumber": 5,
-            "tableLocationX": 550,
-            "tableLocationY": 200
+            "tableLocationX": 30,
+            "tableLocationY": 20
         }
     ]
 }

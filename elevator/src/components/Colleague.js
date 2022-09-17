@@ -11,16 +11,16 @@ export default function Colleague({
       <img
         src={require(`../assets/${imagePath}`)}
         style={{
-          left: tableLocationX,
-          top: tableLocationY,
+          left: `${tableLocationX}vw`,
+          top: `${tableLocationY}vh`,
           position: "absolute",
-          height: isHovered ? 50 : 40,
-          width: isHovered ? 50 : 40,
-          borderRadius: isHovered ? 50 : 40,
+          height: isHovered ? "5vw" : "4vw",
+          width: isHovered ? "5vw" : "4vw",
+          borderRadius: isHovered ? "5vw" : "4vw"
         }}
         onMouseOut={() => setIsHovered(false)}
         onMouseOver={() => setIsHovered(true)}
-        onClick={()=>{}}
+        onClick={() => {}}
       />
     </div>
   );
