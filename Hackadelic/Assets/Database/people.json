@@ -1,0 +1,45 @@
+{
+    "people": [
+        {
+            "peopleId": 1,
+            "firstName": "Yelan",
+            "lastName": "Tao",
+            "description": "Hi, I'm Yelan",
+            "imagePath": "Database/Portrait/portrait_1.png",
+            "floorNumber": 5,
+            "tableLocationX": 10,
+            "tableLocationY": 5
+        },
+        {
+            "peopleId": 2,
+            "firstName": "Joshua",
+            "lastName": "Näf",
+            "description": "Hi, I'm Joshua",
+            "imagePath": "/portrait_2.png",
+            "floorNumber": 5,
+            "tableLocationX": 10, 
+            "tableLocationY": 10
+        },
+        {
+            "peopleId": 3,
+            "firstName": "Michael",
+            "lastName": "??",
+            "description": "Hi, I'm Michael",
+            "imagePath": "/portrait_3.png",
+            "floorNumber": 5,
+            "tableLocationX": 15,
+            "tableLocationY": 5
+        },
+        {
+            "peopleId": 4,
+            "firstName": "Silvan",
+            "lastName": "Löw",
+            "description": "Hi, I'm Silvan",
+            "imagePath": "/portrait_4.png",
+            "floorNumber": 5,
+            "tableLocationX": 15,
+            "tableLocationY": 10
+        }
+        
+    ]
+}
