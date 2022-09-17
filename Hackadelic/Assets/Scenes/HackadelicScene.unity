@@ -449,6 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1920542296}
   - component: {fileID: 1920542297}
+  - component: {fileID: 1920542298}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -485,3 +486,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapManager: {fileID: 217185291}
   LeaderboardManager: {fileID: 241923373}
+--- !u!114 &1920542298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920542295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d5b7a335f687e418ec086ebbc9960a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
