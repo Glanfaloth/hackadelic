@@ -48,7 +48,7 @@ public class LeaderboardManager : MonoBehaviour
 
     public IEnumerator DrawPlayerBar()
     {
-        for (float j = 0; j < 1.0f; j += 0.01f)
+        for (float j = 0; j < 1.0f; j += 0.002f)
         {
             GameObject playerBar = transform.Find("ScorePlayer").gameObject;
             float barScalePlayer = j * 16.0f * (float)playerScore.RelativeScore / (float)sorted_scores[0].RelativeScore;

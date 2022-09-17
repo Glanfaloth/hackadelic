@@ -45,12 +45,10 @@ public class GameManager : MonoBehaviour
             GameState.Time += Time.deltaTime;
         }
 
-        // if (Input.GetKeyDown("f"))
-        // {
-        //     ShowLeaderboards();
-        //     LeaderboardManager.DrawScoreBars();
-        //     StartCoroutine(LeaderboardManager.DrawPlayerBar());
-        // }
+        if (Input.GetKeyDown("f"))
+        {
+            ShowLeaderboards();
+        }
     }
 
     void InitializeGame()
@@ -72,6 +70,8 @@ public class GameManager : MonoBehaviour
 
         LeaderboardManager.gameObject.SetActive(true);
         LeaderboardManager.InitializeLeaderboard(LeaderboardService.scores);
+        LeaderboardManager.DrawScoreBars();
+        StartCoroutine(LeaderboardManager.DrawPlayerBar());
     }
 
     void StopGame()
