@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Objects
+    public MapManager MapManager;
+
     // States
     public static GameState GameState;
 
@@ -18,6 +21,11 @@ public class GameManager : MonoBehaviour
         PeopleService = new PeopleService();
     }
 
+    void Start()
+    {
+        InitializeGame();
+    }
+
     void Update()
     {
         if (GameState.GameProgression == GameProgression.RunningGame)
@@ -31,6 +39,8 @@ public class GameManager : MonoBehaviour
         GameState.GameProgression = GameProgression.RunningGame;
         GameState.Points = 0.0f;
         GameState.Time = 0.0f;
+        
+        MapManager.G
     }
 
     void ShowLeaderboards()
