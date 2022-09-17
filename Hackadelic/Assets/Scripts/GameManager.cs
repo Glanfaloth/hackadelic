@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
 
         MapManager.gameObject.SetActive(true);
         MapManager.InitializeMap();
-
+        
+        LeaderboardManager.gameObject.SetActive(false);
     }
 
     public void ShowLeaderboards()
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        InitializeGame();
+        ShowLeaderboards();
     }
 
     void Update()
