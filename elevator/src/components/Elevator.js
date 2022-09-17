@@ -1,39 +1,16 @@
-import { React, useState, useEffect } from "react";
-import logo from "../assets/schindlerlogo.png";
+import { React } from "react";
+import elevator from "../assets/elevator.png";
 export default function Elevator({}) {
-  const [height, setHeihgt] = useState(20);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHeihgt((e) => Math.min(e + 10, 640));
-    }, 1000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
   return (
-    <div
+    <img
+      src={elevator}
+      id={"elevator"}
       style={{
-        backgroundColor: "white",
-        width: "100px",
-        height: "120px",
         position: "absolute",
-        right: "20px",
-        zIndex: "4",
-        border: "5px solid",
-        borderRadius: "10px",
-        borderColor: height < 640 ? "red" : "green",
-        bottom: `${height}px`,
-        padding: "5px",
-        alignContent: "center"
+        width: "6vw",
+        left: "54vw",
+        top: "30vh"
       }}
-    >
-      <img
-        src={logo}
-        style={{
-          width: 92,
-          height: 80
-        }}
-      />
-    </div>
+    />
   );
 }

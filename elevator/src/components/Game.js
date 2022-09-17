@@ -1,12 +1,9 @@
 import blueprint from "../assets/floor_plan_1.png";
-import wc from "../assets/wc.png";
-import elevator from "../assets/elevator.png";
-import workspace from "../assets/workspace.png";
-import kitchen from "../assets/kitchen.png";
+import Introduction from "./Introduction";
 import { useState } from "react";
 import "../App.css";
 import Colleague from "./Colleague";
-import Elevator from "./Elevator";
+import ElevatorUI from "./ElevatorUI";
 
 function Game() {
   var people = require("../assets/people.json");
@@ -49,6 +46,7 @@ function Game() {
             floorNumber={person.floorNumber}
             tableLocationX={person.tableLocationX}
             tableLocationY={person.tableLocationY}
+            location={person.location}
           />
         ))}
       </div>
@@ -56,7 +54,7 @@ function Game() {
         style={{
           backgroundColor: "cyan",
           opacity: "0.4",
-          width: "120px",
+          width: "10vw",
           height: "95vh",
           position: "absolute",
           right: "10px",
@@ -65,55 +63,12 @@ function Game() {
           borderColor: "black",
           borderRadius: "10px",
           marginTop: "10px",
-          padding: "5px",
+          padding: "1vw",
           alignContent: "center"
         }}
       ></div>
-      <img
-        src={elevator}
-        id={"elevator"}
-        style={{
-          zIndex: "3",
-          position: "absolute",
-          width: "6vw",
-          left: "54vw",
-          top: "30vh"
-        }}
-      />
-      <img
-        src={kitchen}
-        id={"kitchen"}
-        style={{
-          zIndex: "3",
-          position: "absolute",
-          width: "15vw",
-          left: "27vw",
-          top: "46vh",
-        }}
-      />
-      <img
-        src={workspace}
-        id={"workspace"}
-        style={{
-          zIndex: "3",
-          position: "absolute",
-          width: "11vw",
-          left: "51vw",
-          top: "65vh"
-        }}
-      />
-      <img
-        src={wc}
-        id={"wc"}
-        style={{
-          zIndex: "3",
-          position: "absolute",
-          width: "19vw",
-          left: "25.5vw",
-          top: "14vh"
-        }}
-      />
-      <Elevator />
+      <Introduction />
+      <ElevatorUI />
     </div>
   );
 }
