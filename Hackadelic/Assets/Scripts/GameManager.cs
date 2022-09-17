@@ -64,6 +64,11 @@ public class GameManager : MonoBehaviour
         {
             GameState.Time += Time.deltaTime;
         }
+
+        if (Input.GetKeyDown("f"))
+        {
+            ShowLeaderboards();
+        }
     }
 
     void StopGame()
