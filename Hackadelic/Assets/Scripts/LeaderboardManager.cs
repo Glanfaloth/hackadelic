@@ -29,7 +29,6 @@ public class LeaderboardManager : MonoBehaviour
         Debug.Log($"2nd place {sorted_scores[1].PlayerId} with {sorted_scores[1].RelativeScore} pts.");
         Debug.Log($"3rd place {sorted_scores[2].PlayerId} with {sorted_scores[2].RelativeScore} pts.");
         Debug.Log($"Your score: {curr_player.RelativeScore} pts.");
-        // DrawScoreBars(sorted_scores, curr_player);
     }
 
     public void DrawScoreBars()

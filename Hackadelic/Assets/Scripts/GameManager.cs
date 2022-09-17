@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
 
         LeaderboardManager.gameObject.SetActive(true);
         LeaderboardManager.InitializeLeaderboard(LeaderboardService.scores);
+        LeaderboardManager.DrawScoreBars();
+        StartCoroutine(LeaderboardManager.DrawPlayerBar());
     }
 
     void Awake()
