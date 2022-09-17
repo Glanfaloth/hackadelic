@@ -12,6 +12,11 @@ public class MapManager : MonoBehaviour
 
     public void InitializeMap()
     {
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+
         people = GameManager.PeopleService.GetAllPeople();
 
         foreach (Person person in people)
@@ -35,7 +40,7 @@ public class MapManager : MonoBehaviour
 
         if (person != null && person.PeopleId == chosenPerson.PeopleId)
         {
-            GameManager.GameState.Points += 1000;
+            GameManager.GameState.Points += 500;
             Debug.Log($"Points received! Current points: {GameManager.GameState.Points}");
         }
         else

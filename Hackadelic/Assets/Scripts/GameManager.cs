@@ -33,8 +33,18 @@ public class GameManager : MonoBehaviour
     public void ShowLeaderboards()
     {
         GameState.GameProgression = GameProgression.ShowingLeaderboards;
-
         MapManager.gameObject.SetActive(false);
+        if (GameState.Points > 0)
+        {
+            LeaderboardService.AppendToLeardboard(new Score()
+            {
+                    PlayerId = 0,
+                    TotalScore = GameState.Points,
+                    TotalTime = GameState.Time,
+                    RelativeScore = GameState.Points / GameState.Time,
+                    Timestamp = DateTime.Today.ToOADate()
+            });
+        }
 
         LeaderboardManager.gameObject.SetActive(true);
         LeaderboardManager.InitializeLeaderboard(LeaderboardService.scores);
@@ -57,8 +67,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        InitializeGame();
-        // ShowLeaderboards();
+        ShowLeaderboards();
     }
 
     void Update()
