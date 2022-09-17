@@ -57,7 +57,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        ShowLeaderboards();
+        InitializeGame();
+        // ShowLeaderboards();
     }
 
     void Update()
