@@ -19,8 +19,29 @@
             "playerId": 3,
             "totalScore": 1500,
             "totalTime": 10,
-            "relativeScore": 150,
-            "timestamp": 1663414864
+            "relativeScore": 150.0,
+            "timestamp_s": 1663414864
+        },
+        {
+            "playerId": 4,
+            "totalScore": 1501,
+            "totalTime": 10,
+            "relativeScore": 150.1,
+            "timestamp_s": 1663414864
+        },
+        {
+            "playerId": 5,
+            "totalScore": 1510,
+            "totalTime": 10,
+            "relativeScore": 151.0,
+            "timestamp_s": 1663414864
+        },
+        {
+            "playerId": 6,
+            "totalScore": 1504,
+            "totalTime": 10,
+            "relativeScore": 150.4,
+            "timestamp_s": 1663414864
         }
     ]
 }

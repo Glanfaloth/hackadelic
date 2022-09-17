@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     // Objects
     public MapManager MapManager;
+    public LeaderboardManager LeaderboardManager;
 
     // Fake Elevator
     public static ElevatorCommunicator ElevatorCommunicator;
@@ -60,10 +61,15 @@ public class GameManager : MonoBehaviour
     {
         GameState.GameProgression = GameProgression.ShowingLeaderboards;
         MapManager.gameObject.SetActive(false);
+        
+        LeaderboardManager.gameObject.SetActive(true);
+        LeaderboardManager.InitializeLeaderboard(LeaderboardService.scores);
+
     }
 
     void StopGame()
     {
         GameState.GameProgression = GameProgression.Idle;
+        LeaderboardManager.gameObject.SetActive(false);
     }
 }
