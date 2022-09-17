@@ -8,9 +8,11 @@ public class GameManager : MonoBehaviour
 
     // States
     public static GameState GameState;
+    public static Score Score;
 
     //Services
     public static PeopleService PeopleService;
+    public static LeaderboardService LeaderboardService;
 
     void Awake()
     {
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
             GameProgression = GameProgression.Idle
         };
         PeopleService = new PeopleService();
+        LeaderboardService = new LeaderboardService();
+        Score = new Score();
     }
 
     void Start()
