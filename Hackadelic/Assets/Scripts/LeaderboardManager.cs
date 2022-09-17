@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,33 +11,12 @@ public class LeaderboardManager : MonoBehaviour
         Score second_place = new Score();
         Score third_place = new Score();
         Score curr_player = scores[scores.Count - 1]; // curr player should always be appended last
-        for (int i = 0; i < scores.Count; i++)
-        {
+        
+        List<Score> sorted_scores = scores.OrderByDescending(x => x.relativeScore).ToList();
 
-            if (scores[i].totalScore > first_place.totalScore)
-            {
-                third_place = second_place;
-                second_place = first_place;
-                first_place = scores[i];
-            }
-            if (i > 0 && 
-                scores[i].totalScore > second_place.totalScore &&
-                scores[i].totalScore < first_place.totalScore)
-            {
-                third_place = second_place;
-                second_place = scores[i];
-            }
-            if (i > 1 && 
-                scores[i].totalScore > third_place.totalScore &&
-                scores[i].totalScore < second_place.totalScore)
-            {
-                third_place = scores[i];
-            }
-        }
-
-        Debug.Log($"1st place {first_place.playerId} with {first_place.totalScore} pts.");
-        Debug.Log($"2nd place {second_place.playerId} with {second_place.totalScore} pts.");
-        Debug.Log($"3rd place {third_place.playerId} with {third_place.totalScore} pts.");
-        Debug.Log($"Your score: {curr_player.totalScore} pts.");
+        Debug.Log($"1st place {sorted_scores[0].playerId} with {sorted_scores[0].relativeScore} pts.");
+        Debug.Log($"2nd place {sorted_scores[1].playerId} with {sorted_scores[1].relativeScore} pts.");
+        Debug.Log($"3rd place {sorted_scores[2].playerId} with {sorted_scores[2].relativeScore} pts.");
+        Debug.Log($"Your score: {curr_player.relativeScore} pts.");
     }
 }
