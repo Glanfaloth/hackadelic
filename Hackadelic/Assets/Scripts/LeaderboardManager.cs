@@ -12,11 +12,11 @@ public class LeaderboardManager : MonoBehaviour
         Score third_place = new Score();
         Score curr_player = scores[scores.Count - 1]; // curr player should always be appended last
         
-        List<Score> sorted_scores = scores.OrderByDescending(x => x.relativeScore).ToList();
+        List<Score> sorted_scores = scores.OrderByDescending(x => x.RelativeScore).ToList();
 
-        Debug.Log($"1st place {sorted_scores[0].playerId} with {sorted_scores[0].relativeScore} pts.");
-        Debug.Log($"2nd place {sorted_scores[1].playerId} with {sorted_scores[1].relativeScore} pts.");
-        Debug.Log($"3rd place {sorted_scores[2].playerId} with {sorted_scores[2].relativeScore} pts.");
-        Debug.Log($"Your score: {curr_player.relativeScore} pts.");
+        Debug.Log($"1st place {sorted_scores[0].PlayerId} with {sorted_scores[0].RelativeScore} pts.");
+        Debug.Log($"2nd place {sorted_scores[1].PlayerId} with {sorted_scores[1].RelativeScore} pts.");
+        Debug.Log($"3rd place {sorted_scores[2].PlayerId} with {sorted_scores[2].RelativeScore} pts.");
+        Debug.Log($"Your score: {curr_player.RelativeScore} pts.");
     }
 }
