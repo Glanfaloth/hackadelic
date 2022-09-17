@@ -1,48 +1,89 @@
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Websocket.Client;
 
 public class ElevatorCommunicator
 {
-    public delegate void ElevatorReachingTargetFloor();
-    public ElevatorReachingTargetFloor OnElevatorReachingTargetFloor;
 
-    public ElevatorState ElevatorState { get; set; } = ElevatorState.Waiting;
-    public int CurrentFloor { get; set; } = 0;
-    public float CurrentTravelTime { get; set; } = 0.0f;
+    GameManager gameManager;
 
-    float travelDuration = 0.0f;
-    float travelTimePerFloor = 2f;
+    ElevatorState ElevatorState { get; set; } = ElevatorState.Waiting;
 
-    public void StartElevatorRide(int targetFloor)
+    string relevantElevator = "liftState:1.1.1";
+
+    WebsocketClient socket;
+
+    Queue<Action> jobs = new Queue<Action>();
+
+    public ElevatorCommunicator(GameManager gameManager)
     {
-        CurrentTravelTime = travelTimePerFloor * Math.Abs(targetFloor - CurrentFloor);
-        CurrentFloor = targetFloor;
-        travelDuration = 0.0f;
-        ElevatorState = ElevatorState.Running;
-        LogElevatorState();
+        this.gameManager = gameManager;
+        InitalizeWebSocket();
     }
 
     public void Update()
     {
-        if (ElevatorState == ElevatorState.Waiting) return;
-
-        travelDuration += Time.deltaTime;
-        if (travelDuration > CurrentTravelTime)
+        while (jobs.Count > 0)
         {
-            CurrentTravelTime = 0.0f;
-            travelDuration = 0.0f;
-            ElevatorState = ElevatorState.Waiting;
-            OnElevatorReachingTargetFloor?.Invoke();
-            LogElevatorState();
+            jobs.Dequeue().Invoke();
         }
     }
 
-    void LogElevatorState()
+    void InitalizeWebSocket()
     {
-        Debug.Log($"ElevatorState: {ElevatorState}");
-        if (ElevatorState == ElevatorState.Running)
+        var url = new Uri("wss://hack2.myport.guide/");
+        socket = new WebsocketClient(url);
+        socket.ReconnectTimeout = TimeSpan.FromSeconds(10);
+        socket.ReconnectionHappened.Subscribe(info =>
         {
-            Debug.Log($"Travel time: {CurrentTravelTime}");
+            socket.Send(TestRequest());
+            Debug.Log($"Reconnection happened: {info.Type}");
+        });
+        socket.MessageReceived.Subscribe(message =>
+        {
+            ProcessMessage(message.Text);
+            Debug.Log($"Message received: {message}");
+        });
+        socket.Start();
+        socket.Send(TestRequest());
+    }
+
+    string TestRequest()
+    {
+        var jsonObject = new JObject();
+        jsonObject.Add("Method", "SUBSCRIBE");
+        jsonObject.Add("asyncId", 1);
+        jsonObject.Add("Request-URI", "/topic/liftState");
+
+        return jsonObject.ToString();
+    }
+
+    void ProcessMessage(string message)
+    {
+        ElevatorMessage elevatorMessage = new ElevatorMessage(JObject.Parse(message));
+        if (elevatorMessage?.Name == "")
+        {
+            return;
+        }
+
+        if (elevatorMessage.Name == relevantElevator &&
+            ElevatorState != elevatorMessage.ElevatorState)
+        {
+            ElevatorState = elevatorMessage.ElevatorState;
+
+            switch (ElevatorState)
+            {
+                case ElevatorState.Waiting:
+                    jobs.Enqueue(gameManager.ShowLeaderboards);
+                    break;
+                case ElevatorState.Running:
+                    jobs.Enqueue(gameManager.InitializeGame);
+                    break;
+                    ;
+            }
+            Debug.Log($"ElevatorState: {ElevatorState}");
         }
     }
 }

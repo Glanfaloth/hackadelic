@@ -7,12 +7,11 @@ public class WebsocketScript : MonoBehaviour
     WebsocketClient client;
     void Start()
     {
-        // var url = new Uri("wss://hack2.myport.guide/");
-        var url = new Uri("wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self");
+        var url = new Uri("wss://hack2.myport.guide/");
         client = new WebsocketClient(url);
         client.MessageReceived.Subscribe(message => Debug.Log($"Message received: {message}"));
         client.Start();
-        client.Send("Hallo");
+        client.Send("{\"Method\":\"SUBSCRIBE\", \"asyncId\": 1, \"Request-URI\":\"/topic/liftState\"}");
     }
 
     float waitingTime = 2f;

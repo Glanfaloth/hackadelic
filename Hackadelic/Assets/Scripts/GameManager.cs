@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Linq;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,9 +8,6 @@ public class GameManager : MonoBehaviour
     public MapManager MapManager;
     public LeaderboardManager LeaderboardManager;
 
-    // Fake Elevator
-    public static ElevatorCommunicator ElevatorCommunicator;
-
     // States
     public static GameState GameState;
 
@@ -17,36 +15,10 @@ public class GameManager : MonoBehaviour
     public static PeopleService PeopleService;
     public static LeaderboardService LeaderboardService;
 
-    void Awake()
-    {
-        ElevatorCommunicator = new ElevatorCommunicator();
+    // Elevator
+    public static ElevatorCommunicator ElevatorCommunicator;
 
-        GameState = new GameState()
-        {
-            GameProgression = GameProgression.Idle
-        };
-
-        PeopleService = new PeopleService();
-        LeaderboardService = new LeaderboardService();
-    }
-
-    void Start()
-    {
-        ElevatorCommunicator.OnElevatorReachingTargetFloor += ShowLeaderboards;
-        ElevatorCommunicator.StartElevatorRide(1);
-        InitializeGame();
-    }
-
-    void Update()
-    {
-        ElevatorCommunicator.Update();
-        if (GameState.GameProgression == GameProgression.RunningGame)
-        {
-            GameState.Time += Time.deltaTime;
-        }
-    }
-
-    void InitializeGame()
+    public void InitializeGame()
     {
         GameState.GameProgression = GameProgression.RunningGame;
         GameState.Points = 0.0f;
@@ -57,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void ShowLeaderboards()
+    public void ShowLeaderboards()
     {
         GameState.GameProgression = GameProgression.ShowingLeaderboards;
 
@@ -65,6 +37,33 @@ public class GameManager : MonoBehaviour
 
         LeaderboardManager.gameObject.SetActive(true);
         LeaderboardManager.InitializeLeaderboard(LeaderboardService.scores);
+    }
+
+    void Awake()
+    {
+        GameState = new GameState()
+        {
+            GameProgression = GameProgression.Idle
+        };
+
+        ElevatorCommunicator = new ElevatorCommunicator(this);
+
+        PeopleService = new PeopleService();
+        LeaderboardService = new LeaderboardService();
+    }
+
+    void Start()
+    {
+        InitializeGame();
+    }
+
+    void Update()
+    {
+        ElevatorCommunicator.Update();
+        if (GameState.GameProgression == GameProgression.RunningGame)
+        {
+            GameState.Time += Time.deltaTime;
+        }
     }
 
     void StopGame()
