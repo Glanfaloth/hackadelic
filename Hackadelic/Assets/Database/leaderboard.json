@@ -5,19 +5,22 @@
             "playerId": 1,
             "totalScore": 0,
             "totalTime": 1,
-            "relativeScore": 0
+            "relativeScore": 0,
+            "timestamp_s": 1663417864
         },
         {
             "playerId": 2,
             "totalScore": 1000,
             "totalTime": 5,
-            "relativeScore": 200
+            "relativeScore": 200,
+            "timestamp_s": 1663413864
         },
         {
             "playerId": 3,
             "totalScore": 1500,
             "totalTime": 10,
-            "relativeScore": 150
+            "relativeScore": 150,
+            "timestamp_s": 1663414864
         }
     ]
 }
