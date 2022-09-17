@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameState GameState;
 
     //Services
-    public static TestService TestService;
+    public static PeopleService PeopleService;
 
     void Awake()
     {
@@ -15,10 +15,8 @@ public class GameManager : MonoBehaviour
         {
             GameProgression = GameProgression.Idle
         };
-        TestService = new TestService();
+        PeopleService = new PeopleService();
     }
-
-    void Start() { }
 
     void Update()
     {
