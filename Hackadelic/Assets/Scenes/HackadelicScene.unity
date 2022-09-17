@@ -235,6 +235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 241923372}
+  - component: {fileID: 241923373}
   m_Layer: 0
   m_Name: Leaderboard
   m_TagString: Untagged
@@ -249,7 +250,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241923371}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.3554897, y: -0.040102508, z: -0.20216554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -258,6 +259,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &241923373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241923371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05aae8e11bf74a75a3d1dccc855d252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &284477612
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,4 +484,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapManager: {fileID: 217185291}
-  LeaderboardManager: {fileID: 0}
+  LeaderboardManager: {fileID: 241923373}

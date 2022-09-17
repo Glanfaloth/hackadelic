@@ -24,6 +24,8 @@ public class ElevatorCommunicator
 
     public void Update()
     {
+        if (ElevatorState == ElevatorState.Waiting) return;
+
         travelDuration += Time.deltaTime;
         if (travelDuration > CurrentTravelTime)
         {

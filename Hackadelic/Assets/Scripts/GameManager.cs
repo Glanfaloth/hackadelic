@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ElevatorCommunicator.OnElevatorReachingTargetFloor += ShowLeaderboards;
-        ElevatorCommunicator.StartElevatorRide(10);
+        ElevatorCommunicator.StartElevatorRide(1);
         InitializeGame();
     }
 
@@ -60,11 +60,11 @@ public class GameManager : MonoBehaviour
     void ShowLeaderboards()
     {
         GameState.GameProgression = GameProgression.ShowingLeaderboards;
+
         MapManager.gameObject.SetActive(false);
-        
+
         LeaderboardManager.gameObject.SetActive(true);
         LeaderboardManager.InitializeLeaderboard(LeaderboardService.scores);
-
     }
 
     void StopGame()
