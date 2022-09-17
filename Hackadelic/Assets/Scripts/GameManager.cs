@@ -35,18 +35,22 @@ public class GameManager : MonoBehaviour
         ElevatorCommunicator.OnElevatorReachingTargetFloor += ShowLeaderboards;
         ElevatorCommunicator.StartElevatorRide(1);
         InitializeGame();
-        // ShowLeaderboards();
-        // LeaderboardManager.DrawScoreBars();
     }
 
     void Update()
     {
-        // StartCoroutine(LeaderboardManager.DrawPlayerBar());
         ElevatorCommunicator.Update();
         if (GameState.GameProgression == GameProgression.RunningGame)
         {
             GameState.Time += Time.deltaTime;
         }
+
+        // if (Input.GetKeyDown("f"))
+        // {
+        //     ShowLeaderboards();
+        //     LeaderboardManager.DrawScoreBars();
+        //     StartCoroutine(LeaderboardManager.DrawPlayerBar());
+        // }
     }
 
     void InitializeGame()

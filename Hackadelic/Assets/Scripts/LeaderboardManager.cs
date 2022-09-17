@@ -7,6 +7,12 @@ public class LeaderboardManager : MonoBehaviour
 {
     List<Score> sorted_scores;
     Score playerScore;
+    Vector3[] BasePositions = new Vector3[]{
+        new Vector3(-12.0f, 0.0f, 0.0f),
+        new Vector3(-4.0f, 0.0f, 0.0f),
+        new Vector3(4.0f, 0.0f, 0.0f),
+        new Vector3(12.0f, 0.0f, 0.0f),
+    };
     Vector3 barBaseScale = new Vector3(2.0f, 0.0f, 1.0f);
     Vector3 e_y = new Vector3(0.0f, 1.0f, 0.0f);
 
@@ -34,24 +40,21 @@ public class LeaderboardManager : MonoBehaviour
         {
             GameObject currentBar = transform.Find(barNames[i]).gameObject;
             float barScale = 16.0f * (float)sorted_scores[i].RelativeScore / (float)sorted_scores[0].RelativeScore;
-            currentBar.transform.localScale += barScale * e_y;
-            currentBar.transform.localPosition += (0.5f * barScale - 8.0f) * e_y;
+            currentBar.transform.localScale = barBaseScale + barScale * e_y;
+            currentBar.transform.localPosition = BasePositions[i] + (0.5f * barScale - 8.0f) * e_y;
         }
         
     }
 
     public IEnumerator DrawPlayerBar()
     {
-        Vector3 BasePos = new Vector3(12.0f, 0.0f, 0.0f);
-        Vector3 BaseScale = new Vector3(2.0f, 0.0f, 1.0f);
         for (float j = 0; j < 1.0f; j += 0.01f)
         {
-            Debug.Log("jfkdsajkflajfdsa");
             GameObject playerBar = transform.Find("ScorePlayer").gameObject;
             float barScalePlayer = j * 16.0f * (float)playerScore.RelativeScore / (float)sorted_scores[0].RelativeScore;
-            playerBar.transform.localScale = BaseScale + barScalePlayer * e_y;
-            playerBar.transform.localPosition = BasePos + (0.5f * barScalePlayer - 8.0f) * e_y;
-            yield return new WaitForSeconds(.01f);
+            playerBar.transform.localScale = barBaseScale + barScalePlayer * e_y;
+            playerBar.transform.localPosition = BasePositions[3] + (0.5f * barScalePlayer - 8.0f) * e_y;
+            yield return null;
         }
 
     }
