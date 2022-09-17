@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+    public SearchPersonText SearchPersonText;
     public GameObject PersonPinPrefab;
 
     Person[] people;
@@ -12,7 +13,7 @@ public class MapManager : MonoBehaviour
 
     public void InitializeMap()
     {
-        for (int i = transform.childCount - 1; i >= 0; i--)
+        for (int i = transform.childCount - 1; i >= 1; i--)
         {
             Destroy(transform.GetChild(i).gameObject);
         }
@@ -51,6 +52,8 @@ public class MapManager : MonoBehaviour
         person = people[Random.Range(0, people.Length)];
 
         chosenPerson = person;
+        SearchPersonText.SetText(chosenPerson);
+
         inputFreeze = 0.5f;
     }
 
