@@ -1,11 +1,31 @@
-import { React, useState } from "react";
-
+import { React } from "react";
+import logo from "../assets/schindlerlogo.png";
 export default function Elevator({}) {
+  
   return (
-    <div>
-      <div style={{ width: 500, height: 500, color: "yellow",  position: "absolute", }}>
-        test
-      </div>
+    <div
+      style={{
+        backgroundColor: "white",
+        width: "100px",
+        height: "120px",
+        position: "absolute",
+        right: "20px",
+        zIndex: "4",
+        border: "2px solid",
+        borderRadius: "10px",
+        borderColor: "red",
+        bottom: "20px",
+        padding: "5px",
+        alignContent: "center"
+      }}
+    >
+      <img
+        src={logo}
+        style={{
+          width: 92,
+          height: 80
+        }}
+      />
     </div>
   );
 }

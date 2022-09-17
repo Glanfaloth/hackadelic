@@ -14,12 +14,12 @@ export default function Colleague({
           left: tableLocationX,
           top: tableLocationY,
           position: "absolute",
-          height: isHovered ? 40 : 50,
-          width: isHovered ? 40 : 50,
-          borderRadius: isHovered ? 40 : 50
+          height: isHovered ? 50 : 40,
+          width: isHovered ? 50 : 40,
+          borderRadius: isHovered ? 50 : 40,
         }}
-        onMouseOut={() => setIsHovered(true)}
-        onMouseOver={() => setIsHovered(false)}
+        onMouseOut={() => setIsHovered(false)}
+        onMouseOver={() => setIsHovered(true)}
         onClick={()=>{}}
       />
     </div>

@@ -1,11 +1,58 @@
 import blueprint from "./assets/floor_plan_1.png";
-import logo from "./assets/schindlerlogo.png";
+
 import "./App.css";
 import Colleague from "./components/Colleague";
 import Elevator from "./components/Elevator";
 
 function App() {
   var people = require("./assets/people.json");
+  const WebSocket = require("ws");
+  const ws = new WebSocket(`wss://hack2.myport.guide/`, { // PORT Gateway URL
+    rejectUnauthorized: false
+});
+
+  ws.onopen = () => {
+    console.log("Connected");
+    ws.send(
+      JSON.stringify({
+        Method: "SUBSCRIBE",
+        asyncId: 1,
+        "Request-URI": "/topic/liftState/"
+      })
+    );
+    ws.send(
+      JSON.stringify({
+        Method: "POST",
+        asyncId: 2,
+        "Request-URI": "/publish/",
+        "body-json": {
+          asyncId: "8c19718674",
+          options: {
+            destination: {
+              destinationFloor: 7,
+              destinationZone: "Floor 7"
+            }
+          },
+          target: {
+            floor: 1
+          }
+        }
+      })
+    );
+  };
+
+  ws.onmessage = (msg) => {
+    console.log("Message received:", JSON.parse(msg.data));
+  };
+
+  ws.onclose = (e) => {
+    console.log(e);
+  };
+
+  ws.onerror = (e) => {
+    console.error(e);
+  };
+
   return (
     <div>
       {" "}
@@ -50,33 +97,12 @@ function App() {
           border: "2px solid",
           borderColor: "red",
           borderRadius: "10px",
+          marginTop: "10px",
           padding: "5px",
           alignContent: "center"
         }}
       ></div>
-      <div
-        style={{
-          backgroundColor: "white",
-          width: "100px",
-          height: "100px",
-          position: "absolute",
-          right: "20px",
-          zIndex: "4",
-          border: "2px solid",
-          borderColor: "red",
-          padding: "5px",
-          alignContent: "center"
-        }}
-      >
-        <img
-          src={logo}
-          style={{
-            width: 92,
-            height: 80,
-            
-          }}
-        />
-      </div>
+      <Elevator />
     </div>
   );
 }
