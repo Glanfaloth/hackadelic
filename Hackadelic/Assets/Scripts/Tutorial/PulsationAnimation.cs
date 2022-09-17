@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PulsationAnimation : MonoBehaviour
 {
-    float progress;
+    float animationProgress;
     Vector3 baseScale;
     MovingScript movingScript;
+    
     void Start()
     {
         baseScale = transform.localScale;
@@ -15,7 +14,8 @@ public class PulsationAnimation : MonoBehaviour
 
     void Update()
     {
-        progress += Time.deltaTime;
-        transform.localScale = (movingScript.ChangePosition.magnitude * Mathf.Sin(progress) + 1) * baseScale;
+        animationProgress += Time.deltaTime;
+        transform.localScale = (movingScript.ChangePosition.magnitude *
+            Mathf.Sin(animationProgress) + 1) * baseScale;
     }
 }
