@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
@@ -16,24 +17,13 @@ public class LeaderboardService : Service
         for (int i = 0; i < scores_list.Length; i++) {
             scores.Add(scores_list[i]);
         }
-        Debug.Log(scores.Count);
-
     }
 
     public void AppendToLeardboard(Score score)
     {
-        // Debug.Log(scores.Count);
-        // scores.Append(score);
-        // Debug.Log(scores.Count);
-
-
-        // var filePath = $"{Application.dataPath}/Database/leaderboard.json";
-        // Debug.Log(scores[1].totalTime);
-        // string jsonObject = JsonUtility.ToJson(scores);
-        // Debug.Log(jsonObject);
-
-
-
+        scores.Add(score);
+        string jsonObject = JsonConvert.SerializeObject(new { scores = scores });
+        System.IO.File.WriteAllText(@$"{Application.dataPath}/Database/leaderboard.json", jsonObject);
     }
 
 }
