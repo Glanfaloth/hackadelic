@@ -7,18 +7,18 @@ public class GameManager : MonoBehaviour
     public static GameState GameState;
 
     //Services
-    public static TestService TestService;
+    public static PeopleService PeopleService;
 
     void Awake() {
         GameState = new GameState();
-        TestService = new TestService();
+        PeopleService = new PeopleService();
     }
 
     void Start() {
-        var secondPerson = TestService.GetPerson(2);
+        var secondPerson = PeopleService.GetPerson(2);
         Debug.Log($"The second person's last name is {secondPerson.LastName}.");
 
-        var randPerson = TestService.GetRandomPerson();
+        var randPerson = PeopleService.GetRandomPerson();
         Debug.Log($"The random person's last name is {randPerson.LastName}.");
     }
 

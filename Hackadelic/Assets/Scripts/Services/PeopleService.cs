@@ -2,11 +2,11 @@ using Newtonsoft.Json.Linq;
 using System.Linq;
 using UnityEngine;
 
-public class TestService : Service
+public class PeopleService : Service
 {
     Person[] people;
 
-    public TestService() : base("people.json")
+    public PeopleService() : base("people.json")
     {
         var jObject = JObject.Parse(FileContent);
         var jArray = (JArray)jObject["people"];
