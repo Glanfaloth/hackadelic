@@ -18,5 +18,26 @@ public class LeaderboardManager : MonoBehaviour
         Debug.Log($"2nd place {sorted_scores[1].PlayerId} with {sorted_scores[1].RelativeScore} pts.");
         Debug.Log($"3rd place {sorted_scores[2].PlayerId} with {sorted_scores[2].RelativeScore} pts.");
         Debug.Log($"Your score: {curr_player.RelativeScore} pts.");
+        DrawScoreBars(sorted_scores, curr_player);
+    }
+
+    public void DrawScoreBars(List<Score> sorted_scores, Score playerScore)
+    {
+        Vector3 barBaseScale = new Vector3(2.0f, 0.0f, 1.0f);
+        Vector3 e_y = new Vector3(0.0f, 1.0f, 0.0f);
+        string[] barNames = new string[]{"ScoreFirst", "ScoreSecond", "ScoreThird"};
+        
+        for (int i = 0; i < barNames.Length; i++)
+        {
+            GameObject currentBar = transform.Find(barNames[i]).gameObject;
+            float barScale = 16.0f * (float)sorted_scores[i].RelativeScore / (float)sorted_scores[0].RelativeScore;
+            currentBar.transform.localScale += barScale * e_y;
+            currentBar.transform.localPosition += (0.5f * barScale - 8.0f) * e_y;
+        }
+
+        GameObject playerBar = transform.Find("ScorePlayer").gameObject;
+        float barScalePlayer = 16.0f * (float)playerScore.RelativeScore / (float)sorted_scores[0].RelativeScore;
+        playerBar.transform.localScale += barScalePlayer * e_y;
+        playerBar.transform.localPosition += (0.5f * barScalePlayer - 8.0f) * e_y;
     }
 }
