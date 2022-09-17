@@ -16,6 +16,7 @@ public class PersonPin : MonoBehaviour
     {
         this.person = person;
         var sprite = Resources.Load<Sprite>(person.ImagePath);
+        transform.localPosition = new Vector3(person.TableLocationX, person.TableLocationY, -1);
         spriteRenderer.sprite = sprite;
     }
 
