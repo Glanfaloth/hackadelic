@@ -9,7 +9,7 @@ public class MapManager : MonoBehaviour
         var people = GameManager.PeopleService.GetAllPeople();
         foreach(var person in people)
         {
-            var personPin = Instantiate(PersonPinPrefab);
+            var personPin = Instantiate(PersonPinPrefab, transform);
             var personPinCompontent = personPin.GetComponent<PersonPin>();
             personPinCompontent.Initialize(person);
         }
