@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public MapManager MapManager;
     public LeaderboardManager LeaderboardManager;
 
+    // Fake Elevator
+    public static ElevatorCommunicator ElevatorCommunicator;
+
     // States
     public static GameState GameState;
 
