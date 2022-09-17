@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     // States
     public static GameState GameState;
-    public static Score Score;
 
     //Services
     public static PeopleService PeopleService;
@@ -19,22 +18,27 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        ElevatorCommunicator = new ElevatorCommunicator();
+
         GameState = new GameState()
         {
             GameProgression = GameProgression.Idle
         };
+
         PeopleService = new PeopleService();
         LeaderboardService = new LeaderboardService();
-        Score = new Score();
     }
 
     void Start()
     {
+        ElevatorCommunicator.OnElevatorReachingTargetFloor += ShowLeaderboards;
+        ElevatorCommunicator.StartElevatorRide(10);
         InitializeGame();
     }
 
     void Update()
     {
+        ElevatorCommunicator.Update();
         if (GameState.GameProgression == GameProgression.RunningGame)
         {
             GameState.Time += Time.deltaTime;
@@ -55,6 +59,7 @@ public class GameManager : MonoBehaviour
     void ShowLeaderboards()
     {
         GameState.GameProgression = GameProgression.ShowingLeaderboards;
+        MapManager.gameObject.SetActive(false);
     }
 
     void StopGame()
