@@ -24,10 +24,12 @@ public class ElevatorMessage
 
             var dataObject = (JObject)jsonObject["data"];
 
-            string movingState = Convert.ToString(dataObject["movingState"]);
+            string movingState = Convert.ToString(dataObject["doorState"]);
             ElevatorState = movingState switch
             {
-                "moving" => ElevatorState.Running,
+                "locked" => ElevatorState.Running,
+                "locking" => ElevatorState.Running,
+                "closed" => ElevatorState.Running,
                 _ => ElevatorState.Waiting
             };
         }
