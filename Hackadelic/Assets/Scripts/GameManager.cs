@@ -15,10 +15,8 @@ public class GameManager : MonoBehaviour
     }
 
     void Start() {
-        var people = TestService.GetPeople();
-        var secondPerson = (JObject)people[1];
-        var lastName = secondPerson["lastName"].ToString();
-        Debug.Log($"Last name of second person: {lastName}");
+        var secondPerson = TestService.GetPerson(2);
+        Debug.Log($"The second person's last name is {secondPerson.LastName}.");
     }
 
     void Update() {

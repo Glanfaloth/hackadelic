@@ -1,11 +1,19 @@
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 public class TestService : Service
 {
-    public TestService() : base("people.json") { }
+    Person[] people;
 
-    public JArray GetPeople() {
-        var jObject = JObject.Parse(StreamReader.ReadToEnd());
-        return (JArray)jObject["people"];
+    public TestService() : base("people.json")
+    {
+        var jObject = JObject.Parse(FileContent);
+        var jArray = (JArray)jObject["people"];
+        people = jArray.ToObject<Person[]>();
+    }
+
+    public Person GetPerson(int peopleId)
+    {
+        return people.Single(person => person.PeopleId == peopleId);
     }
 }
