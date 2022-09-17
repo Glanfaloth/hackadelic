@@ -40,7 +40,9 @@ public class GameManager : MonoBehaviour
         GameState.Points = 0.0f;
         GameState.Time = 0.0f;
 
-        MapManager.gameObject.SetActive(true);
+        MapManager.gameObject.SetActive(false);
+        MapManager.InitializeMap();
+
     }
 
     void ShowLeaderboards()
