@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
         GameState.GameProgression = GameProgression.RunningGame;
         GameState.Points = 0.0f;
         GameState.Time = 0.0f;
-        
-        MapManager.G
+
+        MapManager.gameObject.SetActive(true);
     }
 
     void ShowLeaderboards()
