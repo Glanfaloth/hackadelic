@@ -15,7 +15,7 @@ public class PersonPin : MonoBehaviour
     public void Initialize(Person person)
     {
         this.person = person;
-        var sprite = Resources.Load(person.ImagePath) as Sprite;
+        var sprite = Resources.Load<Sprite>(person.ImagePath);
         spriteRenderer.sprite = sprite;
     }
 
