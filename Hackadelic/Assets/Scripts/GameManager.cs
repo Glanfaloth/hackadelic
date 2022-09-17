@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     void Start() {
         var secondPerson = TestService.GetPerson(2);
         Debug.Log($"The second person's last name is {secondPerson.LastName}.");
+
+        var randPerson = TestService.GetRandomPerson();
+        Debug.Log($"The random person's last name is {randPerson.LastName}.");
     }
 
     void Update() {
