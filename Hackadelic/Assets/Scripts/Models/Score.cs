@@ -1,8 +1,8 @@
 public class Score
 {
-    public int playerId { get; set; }
-    public double totalScore { get; set; }
-    public double totalTime { get; set; }
-    public double relativeScore { get; set; }
-    public double timestamp_s { get; set; }
+    public int PlayerId { get; set; }
+    public double TotalScore { get; set; }
+    public double TotalTime { get; set; }
+    public double RelativeScore { get; set; }
+    public double Timestamp { get; set; }
 }
