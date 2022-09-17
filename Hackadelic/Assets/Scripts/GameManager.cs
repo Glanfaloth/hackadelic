@@ -5,10 +5,10 @@ public class GameManager : MonoBehaviour
 {
     // Objects
     public MapManager MapManager;
+    public LeaderboardManager LeaderboardManager;
 
     // States
     public static GameState GameState;
-    public static Score Score;
 
     //Services
     public static PeopleService PeopleService;
@@ -22,12 +22,12 @@ public class GameManager : MonoBehaviour
         };
         PeopleService = new PeopleService();
         LeaderboardService = new LeaderboardService();
-        Score = new Score();
     }
 
     void Start()
     {
-        InitializeGame();
+        // InitializeGame();
+        ShowLeaderboards();
     }
 
     void Update()
@@ -52,10 +52,15 @@ public class GameManager : MonoBehaviour
     void ShowLeaderboards()
     {
         GameState.GameProgression = GameProgression.ShowingLeaderboards;
+        MapManager.gameObject.SetActive(false);
+        LeaderboardManager.gameObject.SetActive(true);
+        LeaderboardManager.InitializeLeaderboard(LeaderboardService.scores);
+
     }
 
     void StopGame()
     {
         GameState.GameProgression = GameProgression.Idle;
+        LeaderboardManager.gameObject.SetActive(false);
     }
 }
