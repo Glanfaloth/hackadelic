@@ -7,8 +7,8 @@
             "description": "Hi, I'm Yelan",
             "imagePath": "Portrait/portrait_1",
             "floorNumber": 5,
-            "tableLocationX": 10,
-            "tableLocationY": 5
+            "tableLocationX": -12,
+            "tableLocationY": -6
         },
         {
             "peopleId": 2,
@@ -17,8 +17,8 @@
             "description": "Hi, I'm Joshua",
             "imagePath": "Portrait/portrait_2",
             "floorNumber": 5,
-            "tableLocationX": 10, 
-            "tableLocationY": 10
+            "tableLocationX": -11, 
+            "tableLocationY": 9
         },
         {
             "peopleId": 3,
@@ -28,7 +28,7 @@
             "imagePath": "Portrait/portrait_3",
             "floorNumber": 5,
             "tableLocationX": 15,
-            "tableLocationY": 5
+            "tableLocationY": 2
         },
         {
             "peopleId": 4,
@@ -37,8 +37,8 @@
             "description": "Hi, I'm Silvan",
             "imagePath": "Portrait/portrait_4",
             "floorNumber": 5,
-            "tableLocationX": 15,
-            "tableLocationY": 10
+            "tableLocationX": -20,
+            "tableLocationY": 2
         }
         
     ]
