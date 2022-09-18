@@ -1,0 +1,48 @@
+{
+    "people": [
+        {
+            "peopleId": 1,
+            "firstName": "Yelan",
+            "lastName": "Tao",
+            "description": "I'm going to the 10th floor",
+            "location": "elevator",
+            "imagePath": "portrait_1.jpeg",
+            "floorNumber": 5,
+            "tableLocationX": 55,
+            "tableLocationY": 31
+        },
+        {
+            "peopleId": 2,
+            "firstName": "Joshua",
+            "lastName": "Näf",
+            "description": "Come drink a cup of coffee with me!",
+            "location": "kitchen",
+            "imagePath": "portrait_2.jpeg",
+            "floorNumber": 5,
+            "tableLocationX": 35,
+            "tableLocationY": 45
+        },
+        {
+            "peopleId": 3,
+            "firstName": "Michael",
+            "lastName": "Giger",
+            "description": "I am working on Hackzurich!",
+            "location": "workspace",
+            "imagePath": "portrait_3.jpeg",
+            "floorNumber": 5,
+            "tableLocationX": 58,
+            "tableLocationY": 60
+        },
+        {
+            "peopleId": 4,
+            "firstName": "Silvan",
+            "lastName": "Löw",
+            "description": "I am busy!",
+            "location": "wc",
+            "imagePath": "portrait_4.jpeg",
+            "floorNumber": 5,
+            "tableLocationX": 30,
+            "tableLocationY": 20
+        }
+    ]
+}
