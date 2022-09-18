@@ -6,7 +6,6 @@ using Websocket.Client;
 
 public class ElevatorCommunicator
 {
-
     GameManager gameManager;
 
     ElevatorState ElevatorState { get; set; } = ElevatorState.Waiting;
@@ -44,7 +43,6 @@ public class ElevatorCommunicator
         socket.MessageReceived.Subscribe(message =>
         {
             ProcessMessage(message.Text);
-            Debug.Log($"Message received: {message}");
         });
         socket.Start();
         socket.Send(TestRequest());
