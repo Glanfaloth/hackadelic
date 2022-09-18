@@ -79,9 +79,16 @@ public class GameManager : MonoBehaviour
             GameState.Time += Time.deltaTime;
         }
 
-        if (Input.GetKeyDown("f"))
+        if (Input.GetKeyUp("f"))
         {
-            ShowLeaderboards();
+            if (GameState.GameProgression == GameProgression.RunningGame)
+            {
+                ShowLeaderboards();
+            }
+            else if (GameState.GameProgression == GameProgression.ShowingLeaderboards)
+            {
+                InitializeGame();
+            }
         }
     }
 
